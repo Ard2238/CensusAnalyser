@@ -19,4 +19,13 @@ public class StateCodeAnalyserTest {
     public void checkNumberofRecords() throws StateCensusAnalyserException {
         Assert.assertEquals(37, sca.loadDataFromCSV(STATECODE_CSV_FILE));
     }
+
+    @Test
+    public void checkIncorrectFile() throws StateCensusAnalyserException {
+        try{
+            sca.loadDataFromCSV(INCORRECT_FILE);
+        }catch (StateCensusAnalyserException e){
+            Assert.assertEquals("Incorrect File", e.getMessage());
+        }
+    }
 }
