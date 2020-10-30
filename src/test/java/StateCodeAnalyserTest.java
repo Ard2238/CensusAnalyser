@@ -37,4 +37,13 @@ public class StateCodeAnalyserTest {
             Assert.assertEquals("Incorrect File", e.getMessage());
         }
     }
+
+    @Test
+    public void checkCorrectFileIncorrectDelimiter() throws StateCensusAnalyserException{
+        try{
+            sca.loadDataFromCSV(DELIMITER_INCORRECT_FILE);
+        }catch (StateCensusAnalyserException e){
+            Assert.assertEquals("Incorrect File", e.getMessage());
+        }
+    }
 }
