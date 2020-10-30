@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyser {
-    public int loadDataFromCSV(String filepath) {
+    public int loadDataFromCSV(String filepath) throws StateCensusAnalyserException {
         int count = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(filepath));
@@ -21,9 +21,8 @@ public class StateCensusAnalyser {
                 CSVStateCensus csvdata = itr.next();
             }
             return count;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new StateCensusAnalyserException("Incorrect File");
         }
-        return count;
     }
 }
