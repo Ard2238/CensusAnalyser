@@ -48,4 +48,13 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals("Incorrect File", e.getMessage());
         }
     }
+
+    @Test
+    public void checkCorrectFileIncorrectHeader() throws StateCensusAnalyserException{
+        try{
+            sca.loadDataFromCSV(HEADER_INCORRECT_FILE);
+        }catch (StateCensusAnalyserException e){
+            Assert.assertEquals("Incorrect File", e.getMessage());
+        }
+    }
 }
