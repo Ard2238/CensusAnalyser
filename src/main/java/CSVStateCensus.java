@@ -1,13 +1,14 @@
+import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 
 public class CSVStateCensus {
-    @CsvBindByPosition(position = 0)
+    @CsvBindByName(column = "State")
     private String state;
-    @CsvBindByPosition(position = 1)
+    @CsvBindByName(column = "Population")
     private String population;
-    @CsvBindByPosition(position = 2)
+    @CsvBindByName(column = "AreaInSqKm")
     private String area;
-    @CsvBindByPosition(position = 3)
+    @CsvBindByName(column = "DensityPerSqKm")
     private String density;
 
     public String getState() { return state; }
