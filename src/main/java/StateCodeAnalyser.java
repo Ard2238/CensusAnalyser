@@ -5,18 +5,20 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.CsvToBeanBuilder;
 
-public class StateCensusAnalyser {
-    public int loadDataFromCSV(String filepath) throws StateCensusAnalyserException {
+public class StateCodeAnalyser {
+    public int loadDataFromCSVStateCode(String filepath) throws StateCensusAnalyserException {
         int count = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(filepath));
-            CsvToBean<CSVStateCensus> csvToBean = new CsvToBeanBuilder<CSVStateCensus>(reader).withType(CSVStateCensus.class)
+            CsvToBean<CSVStateCode> csvToBean = new CsvToBeanBuilder<CSVStateCode>(reader).withType(CSVStateCode.class)
                     .withIgnoreLeadingWhiteSpace(true).build();
-            Iterator<CSVStateCensus> itr = csvToBean.iterator();
+            Iterator<CSVStateCode> itr = csvToBean.iterator();
             while (itr.hasNext()) {
                 count++;
-                CSVStateCensus csvdata = itr.next();
+                CSVStateCode csvdata = itr.next();
             }
             return count;
         } catch (Exception e) {
