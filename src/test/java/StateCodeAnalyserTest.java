@@ -28,4 +28,13 @@ public class StateCodeAnalyserTest {
             Assert.assertEquals("Incorrect File", e.getMessage());
         }
     }
+
+    @Test
+    public void checkTypeIncorrectFile() throws StateCensusAnalyserException {
+        try{
+            sca.loadDataFromCSV(TYPE_INCORRECT_FILE);
+        }catch (StateCensusAnalyserException e){
+            Assert.assertEquals("Incorrect File", e.getMessage());
+        }
+    }
 }
